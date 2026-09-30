@@ -1,0 +1,89 @@
+:root {
+  --bg: #f7f6f3;
+  --ink: #23211d;
+  --accent: #b5533c;
+  --card: #ffffff;
+  --border: #e4e0d8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+header h1 { margin: 0; font-size: 1.3rem; }
+nav button {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+nav button:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+main { max-width: 860px; margin: 24px auto; padding: 0 16px; }
+.view { display: none; }
+.view.active { display: block; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .auth-grid { grid-template-columns: 1fr; } }
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+}
+button[type="submit"], #aiGenerateBtn, #searchBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.msg { color: var(--accent); font-weight: 600; }
+.feed-toolbar { display: flex; gap: 8px; margin-bottom: 16px; }
+.feed-toolbar input { margin-bottom: 0; }
+.posts-list { display: flex; flex-direction: column; gap: 12px; }
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+}
+.post-card:hover { border-color: var(--accent); }
+.post-card h3 { margin: 0 0 6px; }
+.post-meta { font-size: 0.85rem; color: #756f63; }
+.tag-pill {
+  display: inline-block;
+  background: #f0e6dd;
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-right: 4px;
+}
+.ai-box { background: #fdf3ea; }
+.hint { font-size: 0.8rem; color: #756f63; }
+#backToFeed { margin-bottom: 12px; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.comment { border-top: 1px solid var(--border); padding: 8px 0; }

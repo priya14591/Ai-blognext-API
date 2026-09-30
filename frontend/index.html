@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI BlogNest</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📝 AI BlogNest</h1>
+    <nav id="nav">
+      <button data-view="feed">Feed</button>
+      <button data-view="write" id="navWrite" style="display:none">Write</button>
+      <button data-view="mine" id="navMine" style="display:none">My Posts</button>
+      <button data-view="auth" id="navAuth">Login / Register</button>
+      <button id="logoutBtn" style="display:none">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- AUTH VIEW -->
+    <section id="view-auth" class="view">
+      <div class="auth-grid">
+        <form id="loginForm" class="card">
+          <h2>Login</h2>
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button type="submit">Login</button>
+        </form>
+        <form id="registerForm" class="card">
+          <h2>Register</h2>
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="password" name="password" placeholder="Password (min 6 chars)" required />
+          <select name="role">
+            <option value="reader">Reader</option>
+            <option value="author">Author</option>
+          </select>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <p id="authMsg" class="msg"></p>
+    </section>
+
+    <!-- FEED VIEW -->
+    <section id="view-feed" class="view active">
+      <div class="feed-toolbar">
+        <input id="searchInput" placeholder="Search posts..." />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="postsList" class="posts-list"></div>
+    </section>
+
+    <!-- POST DETAIL VIEW -->
+    <section id="view-post" class="view">
+      <button id="backToFeed">&larr; Back</button>
+      <div id="postDetail"></div>
+      <div id="commentsBox"></div>
+    </section>
+
+    <!-- WRITE VIEW (author/editor/admin) -->
+    <section id="view-write" class="view">
+      <h2>Write a Post</h2>
+      <div class="ai-box card">
+        <h3>✨ AI Assist</h3>
+        <input id="aiTopic" placeholder="Topic e.g. Benefits of morning walks" />
+        <button id="aiGenerateBtn">Generate blog with AI</button>
+        <p class="hint">Requires GEMINI_API_KEY configured on the server.</p>
+      </div>
+      <form id="postForm" class="card">
+        <input type="text" name="name" id="postTitle" placeholder="Title" required />
+        <textarea name="message" id="postMessage" rows="10" placeholder="Content" required></textarea>
+        <input type="text" name="photo" placeholder="Photo URL / path (optional)" />
+        <input type="text" name="tags" placeholder="Tags, comma separated" />
+        <select name="status">
+          <option value="draft">Save as Draft</option>
+          <option value="pending">Submit for Review</option>
+        </select>
+        <button type="submit">Save Post</button>
+      </form>
+      <p id="writeMsg" class="msg"></p>
+    </section>
+
+    <!-- MY POSTS VIEW -->
+    <section id="view-mine" class="view">
+      <h2>My Posts</h2>
+      <div id="myPostsList" class="posts-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
